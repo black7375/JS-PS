@@ -1,6 +1,5 @@
 function solution(N, stages) {
-  const countStages = Array(N).fill()
-                              .map(() => ({doing: 0, try: 0}));
+  const countStages = Array.from({ length: N }, () => ({doing: 0, try: 0}));
   const answer = [];
 
   stages.forEach(last => {
