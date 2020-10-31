@@ -1,3 +1,5 @@
+const EMPTYBLOCK = '0';
+
 function getLine(board, x, y) {
   return board[y].substr(x, 2);
 }
@@ -14,12 +16,11 @@ function getNewRow(newBoard, y) {
 }
 
 function replaceStr(str, x) {
-  const EMPTYBLOCKS = '00';
+  const EMPTYBLOCKS = EMPTYBLOCK + EMPTYBLOCK;
   return str.substr(0, x) + EMPTYBLOCKS + str.substr(x + 2);
 }
 
 function replaceCol(col) {
-  const EMPTYBLOCK = '0';
   const cleanCol   = col.filter(block => block !== EMPTYBLOCK);
   const emptyCount = col.length - cleanCol.length;
   const emptyArr   = new Array(emptyCount).fill(EMPTYBLOCK);
@@ -48,7 +49,6 @@ function updateBoard(m, n, board, removePos) {
 }
 
 function friends4block(m, n, board) {
-  const EMPTYBLOCK = '0';
   const colLimit   = n - 1;
   const rowLimit   = m - 1;
 
