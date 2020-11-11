@@ -5,12 +5,12 @@ function findRoot(roots, w) {
   else return findRoot(roots, rootV);
 }
 
-function union(roots, x, y, cost) {
-  const xRoot = findRoot(roots, x);
-  const yRoot = findRoot(roots, y);
+function union(roots, w1, w2, cost) {
+  const rootW1 = findRoot(roots, w1);
+  const rootW2 = findRoot(roots, w2);
 
-  if(xRoot === yRoot) return;
-  roots[yRoot] = [xRoot, cost];
+  if(rootW1 === rootW2) return;
+  roots[rootW2] = [rootW1, cost];
 }
 
 function solution(n, costs) {
